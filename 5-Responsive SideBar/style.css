@@ -1,0 +1,171 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+}
+body {
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+.sidebutton {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+  font-size: 4em;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-white);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1rem;
+  box-shadow: var(--clr-red-dark);
+  transform: translate(-100%);
+}
+.sidebar .header {
+  display: flex;
+  font-size: 2em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+.sidebar .links {
+  margin-top: 6vh;
+}
+
+.sidebar .links a {
+  display: block;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  color: var(--clr-grey-5);
+  transition: var(--transition);
+}
+
+.sidebar .links a:hover {
+  background: var(--clr-primary-8);
+  color: var(--clr-primary-5);
+}
+
+.social-icons {
+  margin-top: 30%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition: none;
+}
+.social-icons img {
+  width: 2.5em;
+  height: 2.5em;
+  margin: 5px;
+}
+
+/* added classes */
+.slide {
+  transform: translate(0%);
+  transition: all 1s;
+}
+
+.clicked {
+  transform: rotate(45deg);
+  color: var(--clr-red-light);
+}
+/* keyframes */
+@media screen and (min-width: 670px) {
+  .sidebar {
+    width: 400px;
+  }
+  .close {
+    display: none;
+  }
+  .sidebutton button {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
